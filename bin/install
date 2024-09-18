@@ -4,6 +4,6 @@ set -e
 set -o pipefail
 
 mkdir -p ${ASDF_INSTALL_PATH}/bin
-tar -C ${ASDF_INSTALL_PATH}/bin/ -xzf ${ASDF_DOWNLOAD_PATH}/lemminx-${ASDF_INSTALL_VERSION}.tar.gz
+( cd ${ASDF_INSTALL_PATH}/bin/; unzip ${ASDF_DOWNLOAD_PATH}/lemminx-${ASDF_INSTALL_VERSION}.zip ; mv lemminx-linux lemminx )
 chmod +x ${ASDF_INSTALL_PATH}/bin/lemminx
 
