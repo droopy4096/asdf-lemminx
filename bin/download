@@ -8,7 +8,7 @@ get_cpu() {
 }
 
 get_platform() {
-	echo "$(uname | tr '[:upper:]' '[:lower:]')-$(get_cpu)"
+	echo "$(uname | tr '[:upper:]' '[:lower:]')"
 }
 
 if [[ "$ASDF_INSTALL_TYPE" == "ref" ]]; then
