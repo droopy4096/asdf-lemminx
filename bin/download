@@ -20,5 +20,6 @@ readonly platform=$(get_platform)
 readonly github_coordinates=redhat-developer/vscode-xml
 readonly zip_path="https://github.com/${github_coordinates}/releases/download/${ASDF_INSTALL_VERSION}/lemminx-${platform}.zip"
 
+set -x
 mkdir -p ${ASDF_DOWNLOAD_PATH}
 curl -Lo ${ASDF_DOWNLOAD_PATH}/lemminx-${ASDF_INSTALL_VERSION}.zip "$zip_path"
