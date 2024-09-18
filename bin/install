@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+set -o pipefail
+
+mkdir -p ${ASDF_INSTALL_PATH}/bin
+tar -C ${ASDF_INSTALL_PATH}/bin/ -xzf ${ASDF_DOWNLOAD_PATH}/lemminx-${ASDF_INSTALL_VERSION}.tar.gz
+chmod +x ${ASDF_INSTALL_PATH}/bin/lemminx
+

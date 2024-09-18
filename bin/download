@@ -1,0 +1,24 @@
+#!/bin/env bash
+
+set -e
+set -o pipefail
+
+get_cpu() {
+	uname -m
+}
+
+get_platform() {
+	echo "$(uname | tr '[:upper:]' '[:lower:]')-$(get_cpu)"
+}
+
+if [[ "$ASDF_INSTALL_TYPE" == "ref" ]]; then
+	echo "Install type: 'ref' is not supported at the moment"
+	exit 1
+fi
+
+readonly platform=$(get_platform)
+readonly github_coordinates=redhat-developer/vscode-xml
+readonly tarball_path="https://github.com/${github_coordinates}/releases/download/${ASDF_INSTALL_VERSION}/lemminx-${platform}.tar.gz"
+
+mkdir -p ${ASDF_DOWNLOAD_PATH}
+curl -Lo ${ASDF_DOWNLOAD_PATH}/lemminx-${ASDF_INSTALL_VERSION}.tar.gz "$tarball_path"
